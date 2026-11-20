@@ -12,7 +12,6 @@ class NotificationService {
       const InitializationSettings(android: androidSettings),
     );
 
-    // Android 13 o superior: pedir permiso al usuario en tiempo de ejecución
     await _plugin
         .resolvePlatformSpecificImplementation<
             AndroidFlutterLocalNotificationsPlugin>()
@@ -33,7 +32,6 @@ class NotificationService {
       ),
     );
 
-    // El id 0 es fijo: cada notificación nueva reemplaza a la anterior
     await _plugin.show(0, title, body, details);
   }
 }
